@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var cannon: SKSpriteNode!
     var touchLocation: CGPoint = CGPointZero
@@ -16,6 +16,8 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         cannon = self.childNodeWithName("cannon1") as! SKSpriteNode
+        
+        self.physicsWorld.contactDelegate = self
         
     }
     
@@ -27,11 +29,31 @@ class GameScene: SKScene {
         /* Called when a touch moves */
         touchLocation = touches.first!.locationInNode(self)
     }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let ball:SKSpriteNode = SKScene(fileNamed: "ball")?.childNodeWithName("ball")! as! SKSpriteNode
+        
+        ball.removeFromParent()
+        self.addChild(ball)
+        ball.zPosition = 0
+        ball.position = cannon.position
+        
+        let angleInRadians = Float(cannon.zRotation)
+        let speed = CGFloat(125.0)
+        let vx:CGFloat = CGFloat(cosf(angleInRadians)) * speed
+        let vy:CGFloat = CGFloat(sinf(angleInRadians)) * speed
+        
+        ball.physicsBody?.applyImpulse(CGVectorMake(vx, vy))
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         let percent = touchLocation.x / size.width
         let newAngle = percent * 180 - 180
         cannon.zRotation = CGFloat(newAngle) * CGFloat(M_PI) / 180
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        print("contact")
     }
 }

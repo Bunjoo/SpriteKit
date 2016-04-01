@@ -16,6 +16,7 @@
 		84140C191CAE6F5A000459B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84140C171CAE6F5A000459B9 /* LaunchScreen.storyboard */; };
 		84140C241CAE6F5A000459B9 /* SKTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84140C231CAE6F5A000459B9 /* SKTaskTests.swift */; };
 		84140C2F1CAE6F5A000459B9 /* SKTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84140C2E1CAE6F5A000459B9 /* SKTaskUITests.swift */; };
+		84140C431CAE8798000459B9 /* ball.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84140C421CAE8798000459B9 /* ball.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		84140C2A1CAE6F5A000459B9 /* SKTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84140C2E1CAE6F5A000459B9 /* SKTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTaskUITests.swift; sourceTree = "<group>"; };
 		84140C301CAE6F5A000459B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84140C421CAE8798000459B9 /* ball.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ball.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				84140C0A1CAE6F5A000459B9 /* AppDelegate.swift */,
 				84140C0C1CAE6F5A000459B9 /* GameScene.sks */,
+				84140C421CAE8798000459B9 /* ball.sks */,
 				84140C0E1CAE6F5A000459B9 /* GameScene.swift */,
 				84140C101CAE6F5A000459B9 /* GameViewController.swift */,
 				84140C121CAE6F5A000459B9 /* Main.storyboard */,
@@ -237,6 +240,7 @@
 			files = (
 				84140C0D1CAE6F5A000459B9 /* GameScene.sks in Resources */,
 				84140C191CAE6F5A000459B9 /* LaunchScreen.storyboard in Resources */,
+				84140C431CAE8798000459B9 /* ball.sks in Resources */,
 				84140C161CAE6F5A000459B9 /* Assets.xcassets in Resources */,
 				84140C141CAE6F5A000459B9 /* Main.storyboard in Resources */,
 			);
@@ -492,6 +496,7 @@
 				84140C351CAE6F5A000459B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84140C361CAE6F5A000459B9 /* Build configuration list for PBXNativeTarget "SKTaskTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				84140C381CAE6F5A000459B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84140C391CAE6F5A000459B9 /* Build configuration list for PBXNativeTarget "SKTaskUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +514,7 @@
 				84140C3B1CAE6F5A000459B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
