@@ -70,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let other = (ball == contact.bodyA) ? contact.bodyB : contact.bodyA
         
         if(other.categoryBitMask == pegMask){
-            print("Hit Peg!")
+            other.node?.removeFromParent()
         }
         else if(other.categoryBitMask == squareMask){
             print("Hit Square!")
