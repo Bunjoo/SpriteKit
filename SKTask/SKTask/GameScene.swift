@@ -52,6 +52,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let vy:CGFloat = CGFloat(sinf(angleInRadians)) * speed
         ball.physicsBody?.applyImpulse(CGVectorMake(vx, vy))
         ball.physicsBody?.collisionBitMask = wallMask | ballMask | pegMask
+        
+        //reacting to collisions
+        ball.physicsBody?.contactTestBitMask = ball.physicsBody!.collisionBitMask | squareMask
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -62,6 +65,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        print("contact")
+        let ball = (contact.bodyA.categoryBitMask == ballMask) ? contact.bodyA : contact.bodyB
+        
+        let other = (ball == contact.bodyA) ? contact.bodyB : contact.bodyA
+        
+        if(other.categoryBitMask == pegMask){
+            print("Hit Peg!")
+        }
+        else if(other.categoryBitMask == squareMask){
+            print("Hit Square!")
+        }
+        else if(other.categoryBitMask == wallMask){
+            print("Hit Wall!")
+        }
+        else if(other.categoryBitMask == ballMask){
+            print("Hit ball!")
+        }
     }
 }
