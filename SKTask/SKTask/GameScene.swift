@@ -20,12 +20,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var cannon: SKSpriteNode!
     var touchLocation: CGPoint = CGPointZero
+    var background:SKAudioNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         cannon = self.childNodeWithName("cannon1") as! SKSpriteNode
         
         self.physicsWorld.contactDelegate = self
+        
+        background = SKAudioNode(fileNamed: "bgm.mp3")
+        self.addChild(background)
+        
         
     }
     
@@ -55,6 +60,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //reacting to collisions
         ball.physicsBody?.contactTestBitMask = ball.physicsBody!.collisionBitMask | squareMask
+        
+        self.runAction(SKAction.playSoundFileNamed("hit.wav", waitForCompletion: false))
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -93,5 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         spark.particleColor = (peg.categoryBitMask == orangePegMask) ? orange : blue
         self.addChild(spark)
         peg.node?.removeFromParent()
+        
+        self.runAction(SKAction.playSoundFileNamed("cannon.wav", waitForCompletion: false))
     }
 }
